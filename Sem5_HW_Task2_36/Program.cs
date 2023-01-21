@@ -21,7 +21,7 @@ int getUserData(string message)
 int Find(int[] array)
 {
     int sum = 0;
-    for (int i = 0; i < array.Length; i+=2)
+    for (int i = 1; i < array.Length; i+=2)
     {
         sum = sum + array [i];
     }
