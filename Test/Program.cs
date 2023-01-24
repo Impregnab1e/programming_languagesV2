@@ -1,12 +1,14 @@
 ﻿Console.Clear();
 
 
-int[] array = new int[8];
-for (int i = 0; i < array.Length; i++)
-{
-    Console.Write($"Введите элемент под индексом {i} ");
-    array[i] = int.Parse(Console.ReadLine());
-}
+double b1 = 2;
+double k1 = 5;
+double b2 = 4;
+double k2 = 9;
 
 
-Console.WriteLine($"Вывод массива: {array} ");
+double x = (b2 - b1) / (k1 - k2);
+Console.WriteLine(x);
+
+
+//Console.WriteLine((double)(b2 - b1) / (k1 - k2));
