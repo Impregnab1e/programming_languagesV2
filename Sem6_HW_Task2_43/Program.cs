@@ -15,11 +15,10 @@ double findPointOfIntersection(double k1, double k2, double b1, double b2)
     // k1 * x +b1 = k2 * x + b2; k1*x=k2*x+b2-b1;  k1*x - k2*x = b2-b1; x = (b2-b1) / (k1-k2)
     double x = (b2 - b1) / (k1 - k2);
     double y = (k1 * x + b1);
-    double y1 = (k1 * x + b1);
     double y2 = (k2 * x + b2);
-    if ( y1 == y2)
+    if ( y == y2)
     {
-        Console.WriteLine($"Точка пересечения двух прямых = ({x};{y})");
+        Console.WriteLine($"Точка пересечения двух прямых = ({x}; {y})");
     }
     else 
     {
