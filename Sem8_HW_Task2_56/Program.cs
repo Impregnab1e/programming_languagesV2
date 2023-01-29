@@ -1,9 +1,11 @@
-﻿/*Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+﻿/*Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 Например, задан массив:
 1 4 7 2
 5 9 2 3
 8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.*/
+5 2 6 7
+Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+*/
 
 Console.Clear();
 
@@ -35,25 +37,31 @@ void printColor(string data, ConsoleColor color)
     Console.ResetColor();
 }
 
-int colLength = GetDataFromUser("Введите количество строк");
-int rowLength = GetDataFromUser("Введите количество столбцов");
 
-void avgOfColumm(int[,] array)
+
+void roWLowestSumOfElements(int[,] array)
 {
-    
+    int sumRow = 0;
+    int minRowOfSum = 0;
+    int minRow = 0;
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        double result = 0;
-        double result2 = 0;
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            result = result + array[i, j];
-            result2 = result /colLength;
-        }
-        Console.WriteLine($"Среднее орифметическое столбца {j} это {result2}");
+        minRow = minRow + array[0, j];
     }
-
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            sumRow = sumRow + array[i, j];
+        if (sumRow < minRow)
+        {
+            minRow = sumRow;
+            minRowOfSum = i;
+        }
+        sumRow = 0;
+    }
+    Console.WriteLine($"Строка с наименьшей суммой элементов: {minRowOfSum+1}");
 }
+
 void print2DArray(int[,] array)
 {
     Console.Write("\t");
@@ -73,9 +81,12 @@ void print2DArray(int[,] array)
     }
 }
 
+int colLength = GetDataFromUser("Введите количество строк");
+int rowLength = GetDataFromUser("Введите количество столбцов");
 
-
-int[,] array = get2DIntArray(colLength, rowLength, 0, 100);
+int[,] array = get2DIntArray(colLength, rowLength, 0, 10);
 print2DArray(array);
+
 Console.WriteLine();
-avgOfColumm(array);
+
+roWLowestSumOfElements(array);
