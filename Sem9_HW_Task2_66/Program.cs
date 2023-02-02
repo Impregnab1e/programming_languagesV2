@@ -13,17 +13,17 @@ int getFromUserData(string message)
     return result;
 }
 
-int getStrRange(int start, int finish)
+int getSumFromRange(int start, int finish)
 {
     if (start == finish)
     {
         return start;
     }
-    return finish + getStrRange(start, finish-1);
+    return finish + getSumFromRange(start, finish-1);
 }
 
 int start = getFromUserData("Введите M");
 int finish = getFromUserData("Введите N");
 
-int result = getStrRange(start, finish);
+int result = getSumFromRange(start, finish);
 Console.WriteLine($"Сумма натуральных элементов в промежутке от {start} до {finish} = {result}");
